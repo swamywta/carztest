@@ -1,0 +1,34 @@
+@import "src/app/core/scss/fuse";
+
+:host {
+    min-height: 100%;
+
+    #projects {
+        width: 100%;
+        overflow: auto;
+
+        .projects-list {
+            padding: 32px 0;
+            max-height: none !important;
+
+            .project-list-item {
+                min-width: 210px;
+                width: 210px;
+                padding: 24px 0;
+                margin: 16px;
+                border-radius: 2px;
+                background: rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+
+                &:hover {
+                    @include mat-elevation(4);
+                }
+
+                .project-name {
+                    padding-top: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
