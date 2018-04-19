@@ -12,6 +12,8 @@ import { FuseConfigService } from './core/services/config.service';
 import { FuseNavigationService } from './core/components/navigation/navigation.service';
 import { FuseSampleModule } from './main/content/sample/sample.module';
 import { ProjectsModule } from './main/content/projects/projects.module';
+import { AppService } from './app.service';
+import { ProjectsService } from './main/content/projects/projects.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 const appRoutes: Routes = [
@@ -43,6 +45,8 @@ const appRoutes: Routes = [
     providers   : [
         FuseSplashScreenService,
         FuseConfigService,
+        ProjectsService,
+        AppService,
         FuseNavigationService
     ],
     bootstrap   : [
