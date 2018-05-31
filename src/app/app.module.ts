@@ -15,6 +15,28 @@ import { ProjectsModule } from './main/content/projects/projects.module';
 import { AppService } from './app.service';
 import { ProjectsService } from './main/content/projects/projects.service';
 import { TranslateModule } from '@ngx-translate/core';
+import {
+    SocialLoginModule,
+    AuthServiceConfig,
+    GoogleLoginProvider,
+    FacebookLoginProvider,
+} from "angular5-social-login";
+// Configs
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("Your-Facebook-app-id")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("Your-Google-Client-Id")
+        },
+      ]
+  );
+  return config;
+}
 
 const appRoutes: Routes = [
     {
@@ -40,14 +62,19 @@ const appRoutes: Routes = [
         TranslateModule.forRoot(),
         FuseMainModule,
         FuseSampleModule,
-        ProjectsModule
+        ProjectsModule,
+        SocialLoginModule
     ],
     providers   : [
         FuseSplashScreenService,
         FuseConfigService,
         ProjectsService,
         AppService,
-        FuseNavigationService
+        FuseNavigationService,
+        {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
     ],
     bootstrap   : [
         AppComponent

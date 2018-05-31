@@ -24,9 +24,9 @@ onProjectsChanged: Subscription;
         });
   }
   get_projects(){
-    this.projectsService.getProjects().subscribe(projects => {
-      console.log(projects);
-      this.projects = projects;
-    })
+    // this.projectsService.getProjects().subscribe(projects => {
+    //   console.log(projects);
+    //   this.projects = projects;
+    // })
   }
 }

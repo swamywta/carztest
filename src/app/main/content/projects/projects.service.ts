@@ -11,15 +11,15 @@ export class ProjectsService {
   constructor(private http: HttpClient, private appService: AppService) {
 
    }
-   getProjects(): Observable<any[]>
-   {
-     return new Observable((resolve, reject) => {
-       this.http.get(this.appService.baseUrl() + '/apis/getProjects')
-        .subscribe(response => {
-          this.projects = response;
-          resolve(this.projects);
-        }, reject);
-     })
-   }
+   // getProjects(): Observable<any[]>
+   // {
+   //   return new Observable((resolve, reject) => {
+   //     this.http.get(this.appService.baseUrl() + '/apis/getProjects')
+   //      .subscribe(response => {
+   //        this.projects = response;
+   //        resolve(this.projects);
+   //      }, reject);
+   //   })
+   // }
 
 }
